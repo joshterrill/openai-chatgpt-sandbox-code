@@ -120,6 +120,152 @@ drwxr-xr-x 1 sandbox 4.0K Oct  4 12:00 .
 drwxr-xr-x 1 sandbox 4.0K Oct  4 12:00 ..
 -rw-r--r-- 1 sandbox 3.2K Oct  4 12:00 user_machine_types.py
 
+> ls -halo /etc
+
+total 505K
+drwxr-xr-x 2 root 4.0K Mar 16 06:26 .
+drwxr-xr-x 2 root   80 Mar 16 06:26 ..
+-rw------- 1 root    0 Mar 11 00:00 .pwd.lock
+drwxr-xr-x 2 root 4.0K Mar 12 05:54 ImageMagick-6
+drwxr-xr-x 2 root 4.0K Jun 28  2023 ODBCDataSources
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 PackageKit
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 X11
+-rw-r--r-- 1 root 3.0K May 25  2023 adduser.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 alternatives
+-rw-r--r-- 1 root  833 Feb 10  2023 appstream.conf
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 apt
+-rw-r--r-- 1 root 2.0K Apr 23  2023 bash.bashrc
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 bash_completion.d
+-rw-r--r-- 1 root  367 Sep 22  2022 bindresvport.blacklist
+drwxr-xr-x 2 root 4.0K Jan 26 21:48 binfmt.d
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 ca-certificates
+-rw-r--r-- 1 root 5.9K Mar 12 05:53 ca-certificates.conf
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 cron.d
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 cron.daily
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 dbus-1
+-rw-r--r-- 1 root 2.9K Jan  8  2023 debconf.conf
+-rw-r--r-- 1 root    5 Jan 28 21:20 debian_version
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 default
+-rw-r--r-- 1 root 1.7K May 25  2023 deluser.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 dhcp
+drwxr-xr-x 2 root 4.0K Mar 12 05:54 dpkg
+-rw-r--r-- 1 root  685 Mar  5  2023 e2scrub.conf
+drwxr-xr-x 2 root 4.0K Mar 12 05:54 emacs
+-rw-r--r-- 1 root    0 Mar 11 00:00 environment
+-rw-r--r-- 1 root 1.9K Oct 17  2022 ethertypes
+drwxr-xr-x 2 root 4.0K Mar 12 05:54 fonts
+-rw-r--r-- 1 root   37 Mar 11 00:00 fstab
+-rw-r--r-- 1 root 2.6K Jul 29  2022 gai.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ghostscript
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 glvnd
+-rw-r--r-- 1 root 3.8K Jan 14  2023 gprofng.rc
+-rw-r--r-- 1 root  572 Mar 14 22:34 group
+-rw-r--r-- 1 root  565 Mar 14 22:34 group-
+-rw-r----- 1 root  484 Mar 14 22:34 gshadow
+-rw-r----- 1 root  477 Mar 14 22:34 gshadow-
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 gss
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 gtk-2.0
+-rw-r--r-- 1 root    9 Aug  7  2006 host.conf
+-rw-r--r-- 1 root   37 Mar 16 06:26 hostname
+-rw-r--r-- 1 root  235 Mar 16 06:26 hosts
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 init.d
+-rw-r--r-- 1 root 1.9K Jan  3  2023 inputrc
+-rw-r--r-- 1 root   27 Jan 28 21:20 issue
+-rw-r--r-- 1 root   20 Jan 28 21:20 issue.net
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 kernel
+-rw-r--r-- 1 root  51K Mar 14 22:34 ld.so.cache
+-rw-r--r-- 1 root   34 Sep 22  2022 ld.so.conf
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 ld.so.conf.d
+-rw-r--r-- 1 root  191 Feb  9  2023 libaudit.conf
+lrwxrwxrwx 1 root   27 Mar 11 00:00 localtime -> /usr/share/zoneinfo/Etc/UTC
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 logcheck
+-rw-r--r-- 1 root  13K Nov 11  2022 login.defs
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 logrotate.d
+-r--r--r-- 1 root   33 Mar 14 22:33 machine-id
+-rw-r--r-- 1 root  111 Jan 28  2023 magic
+-rw-r--r-- 1 root  111 Jan 28  2023 magic.mime
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 mercurial
+-rw-r--r-- 1 root  73K Feb 11  2023 mime.types
+-rw-r--r-- 1 root  782 Mar  5  2023 mke2fs.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 modules-load.d
+-rw-r--r-- 1 root  286 Jan 28 21:20 motd
+lrwxrwxrwx 1 root   19 Mar 14 22:33 mtab -> ../proc/self/mounts
+drwxr-xr-x 2 root 4.0K Mar 12 05:54 mysql
+-rw-r--r-- 1 root  767 Aug 11  2022 netconfig
+-rw-r--r-- 1 root   60 Mar 12 05:53 networks
+-rw-r--r-- 1 root  526 Mar 14 22:33 nsswitch.conf
+-rw-r--r-- 1 root    0 Jun 28  2023 odbc.ini
+-rw-r--r-- 1 root    0 Mar 14 22:33 odbcinst.ini
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 openal
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 opt
+lrwxrwxrwx 1 root   21 Jan 28 21:20 os-release -> ../usr/lib/os-release
+-rw-r--r-- 1 root  552 Sep 21 20:55 pam.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 pam.d
+-rw-r--r-- 1 root 1.2K Mar 14 22:34 passwd
+-rw-r--r-- 1 root 1.2K Mar 14 22:34 passwd-
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 perl
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 polkit-1
+-rw-r--r-- 1 root  769 Apr 10  2021 profile
+drwxr-xr-x 2 root 4.0K Jan 28 21:20 profile.d
+-rw-r--r-- 1 root 3.1K Oct 17  2022 protocols
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 pulse
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 python3
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 python3.11
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 rc0.d
+drwxr-xr-x 2 root 4.0K Sep 18  2022 rc1.d
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 rc2.d
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 rc3.d
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 rc4.d
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 rc5.d
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 rc6.d
+drwxr-xr-x 2 root 4.0K Mar 12 05:54 rcS.d
+-rw-r--r-- 1 root  158 Mar 16 06:26 resolv.conf
+lrwxrwxrwx 1 root   13 Jan 20 09:27 rmt -> /usr/sbin/rmt
+-rw-r--r-- 1 root  911 Oct 17  2022 rpc
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 security
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 selinux
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 sensors.d
+-rw-r--r-- 1 root  11K Oct 15  2022 sensors3.conf
+-rw-r--r-- 1 root  13K Mar 27  2021 services
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 sgml
+-rw-r----- 1 root  614 Mar 14 22:34 shadow
+-rw-r----- 1 root  585 Mar 14 22:34 shadow-
+-rw-r--r-- 1 root  128 Mar 11 00:00 shells
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 skel
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 ssh
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 ssl
+-rw-r--r-- 1 root   21 Mar 14 22:34 subgid
+-rw-r--r-- 1 root    0 Mar 11 00:00 subgid-
+-rw-r--r-- 1 root   21 Mar 14 22:34 subuid
+-rw-r--r-- 1 root    0 Mar 11 00:00 subuid-
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 subversion
+-rw-r--r-- 1 root 4.3K Jun 27  2023 sudo.conf
+-rw-r--r-- 1 root 9.6K Jun 27  2023 sudo_logsrvd.conf
+-r--r----- 1 root 1.7K Jun 27  2023 sudoers
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 sudoers.d
+-rw-r--r-- 1 root 2.3K Dec 19  2022 sysctl.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 sysctl.d
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 systemd
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 terminfo
+-rw-r--r-- 1 root    8 Mar 11 00:00 timezone
+drwxr-xr-x 2 root 4.0K Jan 26 21:48 tmpfiles.d
+-rw-r--r-- 1 root 1.3K Jan 27  2023 ucf.conf
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 update-motd.d
+-rw-r--r-- 1 root   51 Mar  7  2022 vdpau_wrapper.cfg
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 vim
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 vulkan
+-rw-r--r-- 1 root 4.9K May 14  2022 wgetrc
+-rw-r--r-- 1 root  681 Jan 17  2023 xattr.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 xdg
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 xml
+0
+ls: /etc/shadow: Permission denied
+ls: /etc/gshadow: Permission denied
+ls: /etc/.pwd.lock: Permission denied
+ls: /etc/shadow-: Permission denied
+ls: /etc/gshadow-: Permission denied
+ls: /etc/sudoers: Permission denied
+
 > ps aux
 
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
