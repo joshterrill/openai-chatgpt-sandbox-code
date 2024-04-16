@@ -14,8 +14,8 @@ async def startup():
 
 @app.on_event("shutdown")
 async def shutdown():
-    _timeout_task.cancel()                
-    _fill_kernel_queue_task.cancel()                
+    _timeout_task.cancel()
+    _fill_kernel_queue_task.cancel()
 
 
 def _is_from_localhost(request: Request) -> bool:
@@ -121,8 +121,6 @@ async def _health_check_background():
 
 
 def _check_health():
-                                                                            
-                                                                                         
     if not _first_kernel_started:
         logger.info("Reporting health check failure: kernel queue is not initialized")
         return PlainTextResponse(content="Kernel queue is not initialized", status_code=500)
@@ -145,7 +143,7 @@ def _check_health():
     if last_success_age is None or last_success_age > _HEALTH_CHECK_FAILURE_THRESHOLD:
         reason = f"Most recent successful health check is {last_success_age} seconds old"
         if last_success_age is not None:
-                                                               
+
             logger.error(f"Reporting health check failure: {reason}")
         return PlainTextResponse(content=reason, status_code=500)
     return PlainTextResponse(content="success")
@@ -237,8 +235,6 @@ async def create_kernel(create_kernel_request: CreateKernelRequest):
     logger.info(f"Create kernel request. {create_kernel_request}")
     kernel_idle_timeout = create_kernel_request.timeout
     try:
-                                                                                          
-                                                                              
         kernel_id, callback_id = await asyncio.wait_for(_kernel_queue.get(), timeout=60.0)
     except TimeoutError:
         raise HTTPException(
@@ -251,21 +247,14 @@ async def create_kernel(create_kernel_request: CreateKernelRequest):
     return CreateKernelResponse(kernel_id=kernel_id)
 
 
-                                                                        
+
 @app.websocket("/channel")
 async def channel(websocket: WebSocket):
     await websocket.accept(headers=[(_SELF_IDENTIFY_HEADER_KEY_BYTES, _SELF_IDENTIFY_BYTES)])
 
     clients: dict[str, AsyncKernelClientHolder] = {}
     registered_callback_ids = set()
-                                      
-                                                               
-                                                                             
-                                                           
-                                                                                
-                                         
-     
-                                                                  
+
     recv_from_api_server = asyncio.create_task(websocket.receive_text())
     recv_from_jupyter = None
     try:
@@ -300,7 +289,7 @@ async def channel(websocket: WebSocket):
                                     object_reference.id
                                 )
                                 callback_id = _kernel_callback_id[object_reference.id]
-                                                                       
+
                                 logger.debug("Setting callback forward function.")
                                 registered_callback_ids.add(callback_id)
                                 if callback_id not in _KERNEL_CALLBACK_CONNECTION:
@@ -368,10 +357,10 @@ async def channel(websocket: WebSocket):
                         value=str(e),
                         traceback=traceback.format_tb(e.__traceback__),
                     )
-                                                                                         
+
                     del e
 
-                                           
+
                 message = result.json()
                 logger.debug(f"Sending response: {type(result)}, {len(message)}")
                 if len(message) > _MAX_JUPYTER_MESSAGE_SIZE:
@@ -414,17 +403,17 @@ async def channel(websocket: WebSocket):
 
 @app.middleware("http")
 async def add_self_identify_header(request: Request, call_next):
-                                                                                                  
+
     if _is_from_localhost(request):
-                                                                                                  
+
         return await call_next(request)
     try:
         response = await call_next(request)
     except Exception:
-                                                                                     
-                                                                                      
-                                                                                 
-                                    
+
+
+
+
         traceback.print_exc()
         return PlainTextResponse(
             "Internal server error",

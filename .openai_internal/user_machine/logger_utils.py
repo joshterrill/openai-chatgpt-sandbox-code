@@ -14,7 +14,7 @@ class CustomJsonFormatter(jsonlogger.JsonFormatter):
     ) -> Any:
         super(CustomJsonFormatter, self).add_fields(log_record, record, message_dict)
         if not log_record.get("timestamp"):
-                                                                    
+
             now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
             log_record["timestamp"] = now
         if log_record.get("level"):
@@ -37,7 +37,7 @@ def init_logger_settings(
         json_formatter = CustomJsonFormatter("%(timestamp)s %(level)s %(name)s %(message)s")
         base_handler.setFormatter(json_formatter)
 
-                                    
+
     root_logger = logging.getLogger()
     root_logger.setLevel(root_log_level)
     for handler in root_logger.handlers:

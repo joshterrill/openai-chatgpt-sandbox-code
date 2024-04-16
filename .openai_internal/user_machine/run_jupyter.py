@@ -3,7 +3,7 @@ import json
 import logging
 
 import jupyter_client
-                                                                                                                
+
 
 logger = logging.getLogger(__name__)
 

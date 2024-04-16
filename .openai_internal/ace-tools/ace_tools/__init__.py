@@ -18,7 +18,7 @@ _USER_MACHINE_PORT = 8080
 def _call_function(
     function_name: str, function_args: list[Any], function_kwargs: dict[str, Any]
 ) -> Any:
-                                                
+
     response = requests.post(
         f"{_BASE_URL}:{_USER_MACHINE_PORT}/ace_tools/call_function",
         json=MethodCall(
@@ -45,19 +45,7 @@ def log_exception(
     args: list[Any] | None = None,
     kwargs: dict[str, Any] | None = None,
 ) -> None:
-                                                                
-     
-                                                                                    
-                                                                                          
-                                                                                    
-     
-            
-                                   
-     
-              
-                   
-                           
-                                                      
+
     exception_id = exception_id or str(uuid.uuid4())
     exc_type, exc_value, _exc_traceback = sys.exc_info()
     traceback_str = "".join(traceback.format_exc())
@@ -95,11 +83,6 @@ def log_exception(
 
 
 def log_matplotlib_img_fallback(reason: str, metadata: dict[str, Any] | None = None) -> None:
-                                                                                     
-                                                  
-     
-                                                                                      
-                                    
     requests.post(
         f"{_BASE_URL}:{_USER_MACHINE_PORT}/ace_tools/log_matplotlib_img_fallback",
         json={
@@ -110,20 +93,20 @@ def log_matplotlib_img_fallback(reason: str, metadata: dict[str, Any] | None = N
 
 
 def display_dataframe_to_user(name: str, dataframe: pd.DataFrame) -> pd.DataFrame:
-                                                   
+
     if os.getenv("FEATURE_SET") == "chatgpt-research":
         return dataframe.head()
 
-                                                                                               
+
     file_name = re.sub(r"[^a-zA-Z0-9_\-]", "_", name)
     modified_csv_path = f"/mnt/data/{file_name}.csv"
 
-                                                
-                                                                                     
+
+
     if isinstance(dataframe.index, pd.RangeIndex):
         dataframe.to_csv(modified_csv_path, index=False)
     else:
-                                                 
+
         dataframe.to_csv(modified_csv_path)
 
     _call_function("display_dataframe_to_user", [], {"path": modified_csv_path, "title": name})
@@ -131,7 +114,7 @@ def display_dataframe_to_user(name: str, dataframe: pd.DataFrame) -> pd.DataFram
 
 
 def display_chart_to_user(path: str, title: str) -> None:
-                                                   
+
     if os.getenv("FEATURE_SET") == "chatgpt-research":
         return
 

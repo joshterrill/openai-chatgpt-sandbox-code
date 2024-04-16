@@ -54,7 +54,7 @@ def get_api_router(send_callback: Callable[[MethodCall, Request], JSONResponse])
                 "orig_func_kwargs": body.orig_func_kwargs,
             },
         )
-                                         
+
 
     @api_router.post("/ace_tools/log_matplotlib_img_fallback")
     async def log_matplotlib_img_fallback(body: LogMatplotlibFallbackRequest, request: Request):

@@ -1,6 +1,8 @@
 # ChatGPT Sandbox Exploration
 
-The following is research I've been conducting in explorting the ChatGPT 4 sandbox VM. This repository contains files and code that live at `/home/sandbox/` and this `README.md` contains the output of some commands I was successfully able to run on the VM via specialized prompts.
+The following is research I've been conducting while exploring the ChatGPT 4 sandbox VM. This repository contains files and code that live at `/home/sandbox/` that are responsible for code execution inside ChatGPT, and this `README.md` contains the output of some commands I was successfully able to run on the VM via specialized prompts.
+
+**Note: These commands were run over multiple kernel sessions, over the course of many days**
 
 ```bash
 > cat /etc/hosts
@@ -63,19 +65,24 @@ FLAG=This is not a flag. You are expected to be able to see this.
 
 Linux e26f2ab5-5143-45ed-99b4-27193badbd58 4.4.0 #1 SMP Sun Jan 10 15:06:54 PST 2016 x86_64 GNU/Linux
 
-
 > find ./ -not -path './.local/*' -exec ls -halo {} \;
 
 /home/sandbox:
-total 4.0K
-drwxr-xr-x 1 sandbox 4.0K Oct  4 12:00 .
-drwxr-xr-x 1 root    4.0K Oct  4 12:00 ..
--rw-r--r-- 1 sandbox   220 Oct  1 00:00 .bash_logout
--rw-r--r-- 1 sandbox 3.7K Oct  1 00:00 .bashrc
--rw-r--r-- 1 sandbox  807 Oct  1 00:00 .profile
-drwx------ 3 sandbox 4.0K Oct  4 12:00 .cache
-drwxrwxr-x 3 sandbox 4.0K Oct  4 12:00 .local
-drwx------ 3 sandbox 4.0K Oct  4 12:00 .openai_internal
+total 23K
+drwx------ 2 sandbox  140 Apr 15 22:10 .
+drwxr-xr-x 2 root      60 Apr 15 22:10 ..
+-rw-r--r-- 1 sandbox  220 Mar 14 22:34 .bash_logout
+-rw-r--r-- 1 sandbox 3.5K Mar 14 22:34 .bashrc
+drwxr-xr-x 2 sandbox 4.0K Mar 14 22:34 .cache
+drwxr-xr-x 2 sandbox 4.0K Apr  3 23:21 .config
+drwxr-xr-x 2 sandbox   60 Apr 15 22:10 .ipython
+drwxr-xr-x 2 sandbox 4.0K Mar 14 23:12 .local
+drwxr-xr-x 2 root    4.0K Apr  3 23:21 .openai_internal
+-rw-r--r-- 1 sandbox  807 Mar 14 22:34 .profile
+-rw-r--r-- 1 sandbox  177 Mar  7 22:04 README
+-rw------- 1 sandbox  270 Apr 15 22:10 kernel-2d470a99-dcfa-4d3d-b355-cded97cadec3.json
+-rw------- 1 sandbox  270 Apr 15 22:10 kernel-4de8b4e6-1731-45df-86e5-3d8fb101e8f4.json
+-rw------- 1 sandbox  270 Apr 15 22:10 kernel-64a96ab4-293d-48d8-8465-fab546f71dfe.json
 
 /home/sandbox/.openai_internal:
 total 4.0K
@@ -295,6 +302,103 @@ none             32G     0   32G   0% /sys/fs/cgroup
 none            124G   65G   59G  53% /etc/resolv.conf
 none            124G   65G   59G  53% /dev/termination-log
 none             32G     0   32G   0% /tmp
+
+> ls -haloR /etc/systemd/
+
+/etc/systemd/:
+total 32K
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 .
+drwxr-xr-x 2 root 4.0K Apr 15 22:10 ..
+-rw-r--r-- 1 root 1.3K Jan 26 21:48 journald.conf
+-rw-r--r-- 1 root 1.6K Jan 26 21:48 logind.conf
+drwxr-xr-x 2 root 4.0K Jan 26 21:48 network
+-rw-r--r-- 1 root  846 Jan 26 21:35 networkd.conf
+-rw-r--r-- 1 root  670 Jan 26 21:35 pstore.conf
+-rw-r--r-- 1 root  953 Jan 26 21:35 sleep.conf
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 system
+-rw-r--r-- 1 root 2.1K Jan 26 21:48 system.conf
+-rw-r--r-- 1 root  864 Jan 26 21:48 timesyncd.conf
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 user
+-rw-r--r-- 1 root 1.4K Jan 26 21:48 user.conf
+
+/etc/systemd/network:
+total 8.0K
+drwxr-xr-x 2 root 4.0K Jan 26 21:48 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+
+/etc/systemd/system:
+total 25K
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+lrwxrwxrwx 1 root   45 Mar 14 22:33 dbus-org.freedesktop.timesync1.service -> /lib/systemd/system/systemd-timesyncd.service
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 getty.target.wants
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 multi-user.target.wants
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 sysinit.target.wants
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 timers.target.wants
+
+/etc/systemd/system/getty.target.wants:
+total 8.5K
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+lrwxrwxrwx 1 root   34 Mar 14 22:33 getty@tty1.service -> /lib/systemd/system/getty@.service
+
+/etc/systemd/system/multi-user.target.wants:
+total 9.0K
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+lrwxrwxrwx 1 root   40 Mar 11 00:00 e2scrub_reap.service -> /lib/systemd/system/e2scrub_reap.service
+lrwxrwxrwx 1 root   36 Mar 14 22:33 remote-fs.target -> /lib/systemd/system/remote-fs.target
+
+/etc/systemd/system/sysinit.target.wants:
+total 9.0K
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+lrwxrwxrwx 1 root   42 Mar 14 22:33 systemd-pstore.service -> /lib/systemd/system/systemd-pstore.service
+lrwxrwxrwx 1 root   45 Mar 14 22:33 systemd-timesyncd.service -> /lib/systemd/system/systemd-timesyncd.service
+
+/etc/systemd/system/timers.target.wants:
+total 11K
+drwxr-xr-x 2 root 4.0K Mar 11 00:00 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+lrwxrwxrwx 1 root   43 Mar 11 00:00 apt-daily-upgrade.timer -> /lib/systemd/system/apt-daily-upgrade.timer
+lrwxrwxrwx 1 root   35 Mar 11 00:00 apt-daily.timer -> /lib/systemd/system/apt-daily.timer
+lrwxrwxrwx 1 root   40 Mar 11 00:00 dpkg-db-backup.timer -> /lib/systemd/system/dpkg-db-backup.timer
+lrwxrwxrwx 1 root   37 Mar 11 00:00 e2scrub_all.timer -> /lib/systemd/system/e2scrub_all.timer
+lrwxrwxrwx 1 root   32 Mar 11 00:00 fstrim.timer -> /lib/systemd/system/fstrim.timer
+
+/etc/systemd/user:
+total 12K
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 .
+drwxr-xr-x 2 root 4.0K Mar 14 22:33 ..
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 sockets.target.wants
+
+/etc/systemd/user/sockets.target.wants:
+total 11K
+drwxr-xr-x 2 root 4.0K Mar 14 22:34 .
+drwxr-xr-x 2 root 4.0K Mar 12 05:53 ..
+lrwxrwxrwx 1 root   32 Mar 12 05:53 dirmngr.socket -> /lib/systemd/user/dirmngr.socket
+lrwxrwxrwx 1 root   42 Mar 12 05:53 gpg-agent-browser.socket -> /lib/systemd/user/gpg-agent-browser.socket
+lrwxrwxrwx 1 root   40 Mar 12 05:53 gpg-agent-extra.socket -> /lib/systemd/user/gpg-agent-extra.socket
+lrwxrwxrwx 1 root   38 Mar 12 05:53 gpg-agent-ssh.socket -> /lib/systemd/user/gpg-agent-ssh.socket
+lrwxrwxrwx 1 root   34 Mar 12 05:53 gpg-agent.socket -> /lib/systemd/user/gpg-agent.socket
+lrwxrwxrwx 1 root   46 Mar 14 22:34 pk-debconf-helper.socket -> /usr/lib/systemd/user/pk-debconf-helper.socket
+/usr/bin/ls: /etc/systemd/system/dbus-org.freedesktop.timesync1.service: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/getty.target.wants/getty@tty1.service: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/multi-user.target.wants/e2scrub_reap.service: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/multi-user.target.wants/remote-fs.target: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/sysinit.target.wants/systemd-pstore.service: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/timers.target.wants/e2scrub_all.timer: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/timers.target.wants/apt-daily.timer: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/timers.target.wants/fstrim.timer: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/timers.target.wants/apt-daily-upgrade.timer: Bad file descriptor
+/usr/bin/ls: /etc/systemd/system/timers.target.wants/dpkg-db-backup.timer: Bad file descriptor
+/usr/bin/ls: /etc/systemd/user/sockets.target.wants/gpg-agent-browser.socket: Bad file descriptor
+/usr/bin/ls: /etc/systemd/user/sockets.target.wants/gpg-agent.socket: Bad file descriptor
+/usr/bin/ls: /etc/systemd/user/sockets.target.wants/gpg-agent-extra.socket: Bad file descriptor
+/usr/bin/ls: /etc/systemd/user/sockets.target.wants/dirmngr.socket: Bad file descriptor
+/usr/bin/ls: /etc/systemd/user/sockets.target.wants/gpg-agent-ssh.socket: Bad file descriptor
+/usr/bin/ls: /etc/systemd/user/sockets.target.wants/pk-debconf-helper.socket: Bad file descriptor
 
 > python
 >>> import os

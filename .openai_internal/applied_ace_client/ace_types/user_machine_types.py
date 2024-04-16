@@ -13,13 +13,13 @@ class ObjectReference(pydantic.BaseModel):
     id: str
 
 
-class MethodCall(pydantic.BaseModel):                          
+class MethodCall(pydantic.BaseModel):
     message_type: Literal["call_request"] = "call_request"
     object_reference: ObjectReference
     request_id: str
     method: str
     args: list[Any]
-                                                                                          
+
     kwargs: dict[str, Any]
 
 
@@ -62,8 +62,8 @@ class DownloadFileToUrlRequest(pydantic.BaseModel):
 
 class CheckFileResponse(pydantic.BaseModel):
     message_type: Literal["check_file_response"] = "check_file_response"
-                                                                           
-                             
+
+
     exists: bool
     too_large: bool
     size: int
@@ -114,8 +114,8 @@ class UserMachineResponseTooLarge(AceException):
 
 
 def parse_raw_as_user_machine_request(s: str | bytes) -> UserMachineRequest:
-    return pydantic.parse_raw_as(UserMachineRequest, s)                
+    return pydantic.parse_raw_as(UserMachineRequest, s)
 
 
 def parse_raw_as_user_machine_response(s: str | bytes) -> UserMachineResponse:
-    return pydantic.parse_raw_as(UserMachineResponse, s)                
+    return pydantic.parse_raw_as(UserMachineResponse, s)
